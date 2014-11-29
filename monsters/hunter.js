@@ -1,3 +1,7 @@
+var Hunter = function(pos) {
+    return Monster(pos, robotHunterAI, drawHunter);
+}
+
 var robotHunterAI = function(world) {
     var player = world.player;
 
@@ -24,5 +28,13 @@ var robotHunterAI = function(world) {
 }
 
 var drawHunter = function(ctx, world) {
-    circle(ctx, this.pos, 20);
+    circle(ctx, this.pos, 7);
+
+    var p1 = posAdd(this.pos, [-30, 0]);
+    var p2 = posAdd(this.pos, [12, -16]);
+    var p3 = posAdd(this.pos, [12, 16]);
+
+    line(ctx, p1, p2);
+    line(ctx, p2, p3);
+    line(ctx, p3, p1);
 }

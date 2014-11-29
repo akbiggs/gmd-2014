@@ -14,20 +14,19 @@ var update = function(world) {
     inputEndOfFrame();
 }
 
-var draw = function(ctx) {
+var draw = function(ctx, world) {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-/*
-    var width = 600;
+    var width = 200;
     for (var i = 0; i < width / 20; i++) {
         //ctx.beginPath();
         //ctx.moveTo(0,0);
         //ctx.lineTo(100, 100 - i * 10);
         //ctx.stroke();
 
-        line(ctx, 0, 0, width, width - i * 10 + Math.round(Math.random() * 50));
+        line(ctx, [0, 0], [width, width - i * 10 + Math.round(Math.random() * 50)]);
     }
-*/
-    worldDraw(world);
+
+    worldDraw(ctx, world);
 }
 

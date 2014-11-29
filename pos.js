@@ -1,5 +1,5 @@
 /* A position is an array with two values, where the first value represents
-  the y-value and the second value represents the x-value. */
+  the x-value and the second value represents the y-value. */
 var posEquals = function(p1, p2) {
     return p1[0] === p2[0] && p1[1] === p2[1];
 }
@@ -39,7 +39,7 @@ var posClone = function(pos) {
 
 var occupied = function(pos, world) {
     return pos[0] < 0 || pos[1] < 0 ||
-        pos[0] >= world.tile_height || pos[1] >= world.tile_width ||
+        pos[0] >= world.tile_width || pos[1] >= world.tile_height ||
         containsPos(world.obstacles, pos);
 }
 
@@ -53,5 +53,4 @@ var adjacents = function(pos, world) {
         return !occupied(v, world);
     });
 }
-
 

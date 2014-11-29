@@ -5,7 +5,7 @@ var keys = []; // keys that are down
 var keysTapped = []; // keys that went down on the current frame
 
 window.onclick = function(e) {
-    mousePos = [e.pageY, e.pageX];
+    mousePos = [e.pageX, e.pageY];
     clicked = true;
 }
 
