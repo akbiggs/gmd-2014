@@ -31,3 +31,27 @@ function line(ctx, start, end) {
     }
 }
 
+function polygon(ctx, gon) {
+    ctx.beginPath();
+
+    ctx.moveTo(Math.round(gon[0][0]), Math.round(gon[0][1]));
+
+    ctx.lineTo(Math.round(gon[1][0]), Math.round(gon[1][1]));
+    ctx.lineTo(Math.round(gon[3][0]), Math.round(gon[3][1]));
+    ctx.lineTo(Math.round(gon[2][0]), Math.round(gon[2][1]));
+
+    ctx.closePath();
+
+    if (gon.length == 5) {
+        ctx.fillStyle = colorToStyle(gon[4]);
+        ctx.fill();
+    }
+}
+
+function colorToStyle(color) {
+    if (color.length == 4) {
+        return "rgba(" + color[0] + ", " + color[1] + ", " + color[2] + ", " + color[3] + ")";
+    }
+
+    return "rgb(" + color[0] + ", " + color[1] + ", " + color[2] + ")";
+}

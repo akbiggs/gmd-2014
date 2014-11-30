@@ -6,6 +6,8 @@ var World = function(width, height, tilesize) {
         width: width,
         height: height,
 
+        background: FracturedBackground(width, height),
+
         debug: true,
 
         tile_width: tile_width,
@@ -105,6 +107,8 @@ var worldUpdate = function(world) {
             world.monsters[i].playerPosLastUpdate = [-1, -1];
         }
     }
+
+    world.background.update();
 };
 
 var worldDraw = function(ctx, world) {
@@ -115,6 +119,7 @@ var worldDraw = function(ctx, world) {
     ctx.strokeStyle = "#000";
     ctx.lineWidth = 2;
     
+    world.background.draw(ctx);
     worldDrawDebug(ctx, world);
 
     for (var i = 0; i < world.monsters.length; i++) {

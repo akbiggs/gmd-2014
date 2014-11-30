@@ -1,3 +1,5 @@
+var tickTime = 1000 / 60;
+
 window.onload = function() {
     var canvas = document.getElementById("game");
     var ctx = canvas.getContext("2d");
@@ -6,10 +8,11 @@ window.onload = function() {
     setInterval(function() {
         update(world);
         draw(ctx, world);
-    }, 1000/60);
+    }, tickTime);
 }
 
 var update = function(world) {
+    Time.update(tickTime);
     worldUpdate(world);
     inputEndOfFrame();
 }
